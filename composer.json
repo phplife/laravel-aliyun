@@ -1,0 +1,19 @@
+{
+  "name": "phplife/laravel-aliyun",
+  "description": "Aliyun SDK for laravel",
+  "keywords": [
+    "aliyun",
+    "laravel"
+  ],
+  "license": "BSD-3-Clause",
+  "require": {
+    "php": "^7.0"
+  },
+  "authors": [
+    {
+      "name": "Lucas Liu",
+      "email": "443434573@qq.com"
+    }
+  ],
+  "minimum-stability": "dev"
+}
