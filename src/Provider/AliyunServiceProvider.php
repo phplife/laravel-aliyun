@@ -1,18 +1,18 @@
 <?php
-    /**
-     * Created by PhpStorm.
-     * User: Lucas
-     * Date: 2018/5/8
-     * Time: 19:58
-     */
+/**
+ * Created by PhpStorm.
+ * User: Lucas
+ * Date: 2018/5/8
+ * Time: 19:58
+ */
 namespace Aliyun\Provider;
-
 
 use Aliyun\Services\Sms;
 use Illuminate\Support\ServiceProvider;
 
 class AliyunServiceProvider extends ServiceProvider
 {
+
     public function boot()
     {
 
@@ -21,6 +21,8 @@ class AliyunServiceProvider extends ServiceProvider
     public function register()
     {
         $this->registerConfig();
+        $this->registerClassAliases();
+        $this->registerSms();
     }
 
     /**
@@ -31,6 +33,7 @@ class AliyunServiceProvider extends ServiceProvider
     protected function registerConfig()
     {
         $this->mergeConfigFrom(realpath(__DIR__.'/../Config/aliyun.php'), 'aliyun');
+        $this->app->configure('aliyun');
     }
 
     /**
