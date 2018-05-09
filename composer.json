@@ -16,10 +16,5 @@
       "email": "443434573@qq.com"
     }
   ],
-  "extra": {
-    "branch-alias": {
-      "dev-master": "1.0"
-    }
-  },
   "minimum-stability": "dev"
 }
