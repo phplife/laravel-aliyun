@@ -15,5 +15,10 @@
       "email": "443434573@qq.com"
     }
   ],
+  "autoload": {
+    "psr-4": {
+      "Aliyun\\": "src/"
+    }
+  },
   "minimum-stability": "dev"
 }
