@@ -1,12 +1,13 @@
 <?php
-    /**
-     * Created by PhpStorm.
-     * User: Lucas
-     * Date: 2018/5/8
-     * Time: 20:36
-     */
+/**
+ * Created by PhpStorm.
+ * User: Lucas
+ * Date: 2018/5/8
+ * Time: 20:36
+ */
 namespace Aliyun\Services;
 
+use Aliyun\Core\Config;
 use Aliyun\Api\Sms\Request\V20170525\SendSmsRequest;
 use Aliyun\Core\DefaultAcsClient;
 use Aliyun\Core\Profile\DefaultProfile;
@@ -56,7 +57,8 @@ class Sms
 
     public function __construct(array $config = [])
     {
-        $this->accessKeyId     = $config['endPointName'];
+        Config::load();
+        $this->accessKeyId     = $config['accessKeyId'];
         $this->accessKeySecret = $config['accessKeySecret'];
         $this->region          = $config['region'];
         $this->endPointName    = $config['endPointName'];

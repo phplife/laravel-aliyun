@@ -11,7 +11,7 @@ use Aliyun\Core\Regions\EndpointProvider;
 class DefaultProfile implements IClientProfile
 {
 	private static $profile;
-	private static $endpoints;
+	private static $endpoints = [];
 	private static $credential;
 	private static $regionId;
 	private static $acceptFormat;
@@ -103,6 +103,7 @@ class DefaultProfile implements IClientProfile
 		$productDomains = array(new ProductDomain($product, $domain));
 		$endpoint = new Endpoint($endpointName, $regionIds, $productDomains);
 		array_push(self::$endpoints, $endpoint);
+        EndpointProvider::setEndpoints(self::$endpoints);
 	}
 	
 	private static function updateEndpoint($regionId, $product, $domain, $endpoint)
