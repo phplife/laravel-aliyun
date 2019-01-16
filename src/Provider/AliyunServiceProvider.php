@@ -33,7 +33,14 @@ class AliyunServiceProvider extends ServiceProvider
     protected function registerConfig()
     {
         $this->mergeConfigFrom(realpath(__DIR__.'/../Config/aliyun.php'), 'aliyun');
-        $this->app->configure('aliyun');
+        if ($this->app instanceof LaravelApplication && $this->app->runningInConsole()) {
+            $this->publishes([
+                dirname(__DIR__).'/config/aliyun.php' => config_path('aliyun.php'), ],
+                'aliyun'
+            );
+        } elseif ($this->app instanceof LumenApplication) {
+            $this->app->configure('aliyun');
+        }
     }
 
     /**
