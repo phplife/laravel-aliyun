@@ -38,7 +38,7 @@ class AliyunServiceProvider extends ServiceProvider
                 dirname(__DIR__).'/config/aliyun.php' => config_path('aliyun.php'), ],
                 'aliyun'
             );
-        } elseif ($this->app instanceof LumenApplication) {
+        } else {
             $this->app->configure('aliyun');
         }
     }
