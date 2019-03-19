@@ -9,6 +9,8 @@ namespace Aliyun\Provider;
 
 use Aliyun\Services\Sms;
 use Illuminate\Support\ServiceProvider;
+use Illuminate\Foundation\Application as LaravelApplication;
+use Laravel\Lumen\Application as LumenApplication;
 
 class AliyunServiceProvider extends ServiceProvider
 {
@@ -38,7 +40,7 @@ class AliyunServiceProvider extends ServiceProvider
                 dirname(__DIR__).'/config/aliyun.php' => config_path('aliyun.php'), ],
                 'aliyun'
             );
-        } else {
+        } elseif ($this->app instanceof LumenApplication) {
             $this->app->configure('aliyun');
         }
     }
